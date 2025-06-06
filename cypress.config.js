@@ -8,3 +8,4 @@ module.exports = defineConfig({
     viewportWidth: 1400
   },
 })
+
