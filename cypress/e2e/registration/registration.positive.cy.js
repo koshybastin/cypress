@@ -47,6 +47,23 @@ describe('Registration', () => {
      cy.get('a p').should('have.text', 'role: user');
 
     })
+
+  it('should not register a new user account with existing email', () => {
+    //Register a new user with existing email
+
+    cy.get('[href="/auth/register"]').click();
+    cy.get('[name="firstName"]').type('Mary');
+    cy.get('[name="lastName"]').type('Koshy');
+    cy.get('[name="email"]').type(email);
+    cy.get('[name="password"]').type(password);
+    cy.get('[type="submit"]').click();
+
+    //verify the error message
+    cy.contains('Input data validation failed').should('be.visible');
    
   })
+
+
+
+})
   
